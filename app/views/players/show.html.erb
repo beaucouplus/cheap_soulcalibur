@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Player name:</strong>
+  <%= @player.player_name %>
+</p>
+
+<p>
+  <strong>Life points:</strong>
+  <%= @player.life_points %>
+</p>
+
+<p>
+  <strong>Attack points:</strong>
+  <%= @player.attack_points %>
+</p>
+
+<p>
+  <strong>Profile pic:</strong>
+  <%= @player.profile_pic %>
+</p>
+
+<p>
+  <strong>Experience:</strong>
+  <%= @player.experience %>
+</p>
+
+<%= link_to 'Edit', edit_player_path(@player) %> |
+<%= link_to 'Back', players_path %>
