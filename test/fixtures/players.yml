@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: players
+#
+#  id            :integer          not null, primary key
+#  player_name   :string
+#  life_points   :integer
+#  attack_points :integer
+#  profile_pic   :string
+#  experience    :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:

@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: players
+#
+#  id            :integer          not null, primary key
+#  player_name   :string
+#  life_points   :integer
+#  attack_points :integer
+#  profile_pic   :string
+#  experience    :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 require 'test_helper'
 
 class PlayerTest < ActiveSupport::TestCase
@@ -19,9 +33,14 @@ class PlayerTest < ActiveSupport::TestCase
     refute @player.valid?
   end
 
+  test "player_name shouldn't be too long" do
+    @player.player_name = "x" * 100
+    refute @player.valid?
+  end
+
   test "player_name should be unique" do
-    player_1 = Player.create(player_name: "Mitsurugi", life_points: 100, attack_points: 100, profile_pic: "test/fixtures/files/mitsurugi.jpg",experience: 0)
-    @player.player_name = "Mitsurugi"
+    player_1 = Player.create(player_name: "Voldo", life_points: 100, attack_points: 100, profile_pic: "test/fixtures/files/mitsurugi.jpg",experience: 0)
+    @player.player_name = "Voldo"
     refute @player.valid?
   end
 
@@ -47,6 +66,11 @@ class PlayerTest < ActiveSupport::TestCase
 
   test "player should be invalid without profile pic" do
     @player.profile_pic = nil
+    refute @player.valid?
+  end
+
+  test "pic url should not be too long" do
+    @player.profile_pic = "x" * 256
     refute @player.valid?
   end
 
