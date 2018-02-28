@@ -6,7 +6,7 @@
 #  player_name   :string
 #  life_points   :integer
 #  attack_points :integer
-#  profile_pic   :string
+#  image         :string
 #  experience    :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
@@ -18,12 +18,18 @@ one:
   player_name: Misturugi
   life_points: 1
   attack_points: 1
-  profile_pic: a_modifier
+  image_file_name: mitsurugi.jpg
+  image_content_type: image/jpeg
+  image_file_size: 223312
+  image_updated_at: 2015-02-29 10:30:19 Z
   experience: 1
 
 two:
   player_name: Rock
   life_points: 1
   attack_points: 1
-  profile_pic: a_modifier
+  image_file_name: mitsurugi.jpg
+  image_content_type: image/jpeg
+  image_file_size: 223312
+  image_updated_at: 2015-02-29 10:30:19 Z
   experience: 1

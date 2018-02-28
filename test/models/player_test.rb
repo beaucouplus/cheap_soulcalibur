@@ -16,7 +16,7 @@ require 'test_helper'
 
 class PlayerTest < ActiveSupport::TestCase
   setup do
-    @player = Player.create(player_name: "Mitsurugi", life_points: 100, attack_points: 100, profile_pic: "test/fixtures/files/mitsurugi.jpg",experience: 0)
+    @player = Player.create(player_name: "Mitsurugi", life_points: 100, attack_points: 100, image: File.new("#{Rails.root}/test/fixtures/files/mitsurugi.jpg"),experience: 0)
   end
 
   test "empty player should be invalid" do
@@ -39,7 +39,7 @@ class PlayerTest < ActiveSupport::TestCase
   end
 
   test "player_name should be unique" do
-    player_1 = Player.create(player_name: "Voldo", life_points: 100, attack_points: 100, profile_pic: "test/fixtures/files/mitsurugi.jpg",experience: 0)
+    player_1 = Player.create(player_name: "Voldo", life_points: 100, attack_points: 100, image: File.new("#{Rails.root}/test/fixtures/files/mitsurugi.jpg"),experience: 0)
     @player.player_name = "Voldo"
     refute @player.valid?
   end
@@ -65,12 +65,7 @@ class PlayerTest < ActiveSupport::TestCase
   end
 
   test "player should be invalid without profile pic" do
-    @player.profile_pic = nil
-    refute @player.valid?
-  end
-
-  test "pic url should not be too long" do
-    @player.profile_pic = "x" * 256
+    @player.image = nil
     refute @player.valid?
   end
 
@@ -79,6 +74,5 @@ class PlayerTest < ActiveSupport::TestCase
     refute @player.valid?
   end
 
-  # test de paperclip ?
 
 end

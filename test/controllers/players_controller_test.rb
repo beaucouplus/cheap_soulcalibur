@@ -17,7 +17,8 @@ class PlayersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create player" do
     assert_difference('Player.count') do
-      post players_url, params: { player: { attack_points: @player.attack_points, experience: @player.experience, life_points: @player.life_points, player_name: "Voldo", profile_pic: @player.profile_pic } }
+      image = fixture_file_upload('files/mitsurugi.jpg', 'image/jpg')
+      post players_url, params: { player: { attack_points: @player.attack_points, experience: @player.experience, life_points: @player.life_points, player_name: "Voldo", image: image } }
     end
 
     assert_redirected_to player_url(Player.last)
@@ -34,7 +35,8 @@ class PlayersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update player" do
-    patch player_url(@player), params: { player: { attack_points: @player.attack_points, experience: @player.experience, life_points: @player.life_points, player_name: @player.player_name, profile_pic: @player.profile_pic } }
+    image = fixture_file_upload('files/mitsurugi.jpg', 'image/jpg')
+    patch player_url(@player), params: { player: { attack_points: @player.attack_points, experience: @player.experience, life_points: @player.life_points, player_name: @player.player_name, image: image } }
     assert_redirected_to player_url(@player)
   end
 
