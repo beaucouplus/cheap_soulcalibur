@@ -10,8 +10,12 @@
     </div>
   <% end %>
   <div class="field">
-    <%= form.label :players %>
-    <%= form.collection_select :player_ids, Player.all, :id, :player_name, {}, { multiple: true }  %>
+    <%= form.label :player_1 %>
+    <%= form.collection_select :player_1, Player.all, :id, :player_name, {} %>
+  </div>
+  <div class="field">
+    <%= form.label :player_2 %>
+    <%= form.collection_select :player_2, Player.all, :id, :player_name, {} %>
   </div>
   <div class="actions">
     <%= form.submit %>

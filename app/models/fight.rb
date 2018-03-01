@@ -5,11 +5,13 @@
 #  id         :integer          not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  player_1   :integer
+#  player_2   :integer
 #
 
 class Fight < ApplicationRecord
-  has_many :fightings
-  has_many :players, through: :fightings
+  has_many :players
 
-  accepts_nested_attributes_for :fightings
+  validates :player_1, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :player_2, presence: true, numericality: { greater_than_or_equal_to: 0 }
 end

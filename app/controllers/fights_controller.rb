@@ -4,8 +4,7 @@ class FightsController < ApplicationController
   end
 
   def create
-    @fight = Fight.new
-    @fight.fightings.build
+    @fight = Fight.new(fight_params)
 
     respond_to do |format|
       if @fight.save
@@ -25,5 +24,10 @@ class FightsController < ApplicationController
 
   def show
     @fight = Fight.find(params[:id])
+  end
+
+  private
+  def fight_params
+    params.require(:fight).permit(:player_1, :player_2)
   end
 end
