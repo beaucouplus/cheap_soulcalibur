@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'fights/new'
-
-  get 'fights/index'
+  resources :fights
 
   resources :players
   root 'static_pages#home'
