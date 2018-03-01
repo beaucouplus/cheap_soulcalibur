@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Player.create!(player_name: "Seung Mina",
+               life_points: 100,
+               attack_points: 100,
+               )
+
+Player.create!(player_name: "Cervantes",
+               life_points: 100,
+               attack_points: 90,
+               )
