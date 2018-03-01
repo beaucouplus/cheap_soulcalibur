@@ -19,8 +19,8 @@
 
 class Player < ApplicationRecord
 
-  has_many :fightings
-  has_many :fights, through: :fightings
+  has_many :home_fights, foreign_key: 'player_1', class_name: 'Fight'
+  has_many :away_fights, foreign_key: 'player_2', class_name: 'Fight'
 
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   # validates_with AttachmentPresenceValidator, attributes: :image

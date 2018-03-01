@@ -10,7 +10,10 @@
 #
 
 class Fight < ApplicationRecord
-  has_many :players
+  belongs_to :first_player, foreign_key: 'player_1', class_name: 'Player'
+  belongs_to :second_player, foreign_key: 'player_2', class_name: 'Player'
+
+
 
   validates :player_1, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :player_2, presence: true, numericality: { greater_than_or_equal_to: 0 }
