@@ -13,6 +13,10 @@
 #
 
 class Player < ApplicationRecord
+
+  has_many :fightings
+  has_many :fights, through: :fightings
+
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   # validates_with AttachmentPresenceValidator, attributes: :image
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
@@ -22,4 +26,6 @@ class Player < ApplicationRecord
   validates :life_points, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
   validates :attack_points, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
   validates :experience, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :victories, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :defeats, presence: true, numericality: { greater_than_or_equal_to: 0 }
 end

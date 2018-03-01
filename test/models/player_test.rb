@@ -64,13 +64,23 @@ class PlayerTest < ActiveSupport::TestCase
     refute @player.valid?
   end
 
-  test "player should be invalid without profile pic" do
+  test "player should be valid without profile pic" do
     @player.image = nil
-    refute @player.valid?
+    assert @player.valid?
   end
 
   test "player should be invalid with out of range experience" do
-    @player.experience = -30
+    @player.experience = -1
+    refute @player.valid?
+  end
+
+  test "player should be invalid with out of range victories" do
+    @player.victories = -1
+    refute @player.valid?
+  end
+
+  test "player should be invalid with out of range defeats" do
+    @player.defeats = -1
     refute @player.valid?
   end
 
