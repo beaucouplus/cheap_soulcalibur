@@ -1,32 +1,23 @@
 class Game
 
-  attr_accessor :fight, :current_player
-  def initialize(fight,current_player)
+  @@count = 0
+  attr_accessor :fight, :players_life
+  def initialize(fight,players_life)
     @fight = fight
-    @current_player = define_current_player(current_player)
+    @players_life = players_life
+    @@count += 1
   end
 
-  def hit_opponent
-    if current_player == @fight.first_player
-      "Salut #{@fight.second_player.player_name}"
-    else
-      "Salut #{@fight.first_player.player_name}"
-    end
+  def change_life(player,life)
+    @players_life[player] = life
   end
 
-
-  private
-
-  def define_current_player(current_player)
-    if current_player == "1"
-      @fight.first_player
-    else
-      @fight.second_player
-    end
+  def self.rounds
+    @@count
   end
 
-  def Randomize(max)
-    prng = Random.new
-    prng.rand(max)
+  def started?
+    @@count > 0
   end
+
 end

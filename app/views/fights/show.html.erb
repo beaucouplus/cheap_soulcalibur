@@ -13,10 +13,10 @@
           </div>
           <div class="card-body">
             <%= image_tag @fight.first_player.image, class:"img-thumbnail mx-auto d-block" %>
-            <%= link_to 'Hit', hit_path(player: @fight.first_player), remote: true, class:"btn btn-block btn-danger btn-lg mt-3" %>
+            <%= link_to 'Attack', play_path(player: @fight.first_player), remote: true, class:"btn btn-block btn-danger btn-lg mt-3" %>
           </div>
           <div class="card-footer">
-            <div class="progress">
+            <div class="progress" id="life_1st">
               <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
@@ -37,11 +37,10 @@
           </div>
           <div class="card-body">
             <%= image_tag @fight.second_player.image, class:"img-thumbnail mx-auto d-block" %>
-            <%= link_to 'Hit', hit_path(player: @fight.second_player), remote: true, class:"btn btn-block btn-danger btn-lg mt-3" %>
+            <%= link_to 'Attack', play_path(player: @fight.second_player), remote: true, class:"btn btn-block btn-danger btn-lg mt-3" %>
           </div>
           <div class="card-footer">
-            <div class="progress">
-              <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress" id="life_2nd">
             </div>
           </div>
         </div>

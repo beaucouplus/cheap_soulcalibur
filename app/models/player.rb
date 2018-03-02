@@ -29,8 +29,8 @@ class Player < ApplicationRecord
   validates_with AttachmentSizeValidator, attributes: :image, less_than: 1.megabytes
 
   validates :player_name, presence: true, length: { maximum: 60 }, uniqueness: true
-  validates :life_points, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
-  validates :attack_points, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
+  validates :life_points, presence: true, numericality: { greater_than_or_equal_to: 70, less_than_or_equal_to: 100 }
+  validates :attack_points, presence: true, numericality: { greater_than_or_equal_to: 15, less_than_or_equal_to: 30 }
   validates :experience, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :victories, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :defeats, presence: true, numericality: { greater_than_or_equal_to: 0 }
