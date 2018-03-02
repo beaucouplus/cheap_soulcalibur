@@ -13,6 +13,7 @@ class Fight < ApplicationRecord
   belongs_to :first_player, foreign_key: 'player_1', class_name: 'Player'
   belongs_to :second_player, foreign_key: 'player_2', class_name: 'Player'
 
+  belongs_to :winner, foreign_key: 'winner', class_name: 'Player', optional: true
 
 
   validates :player_1, presence: true, numericality: { greater_than_or_equal_to: 0 }

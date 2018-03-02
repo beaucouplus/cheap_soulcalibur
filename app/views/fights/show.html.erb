@@ -13,6 +13,7 @@
           </div>
           <div class="card-body">
             <%= image_tag @fight.first_player.image, class:"img-thumbnail mx-auto d-block" %>
+            <%= link_to 'Hit', hit_path(player: @fight.first_player), remote: true, class:"btn btn-block btn-danger btn-lg mt-3" %>
           </div>
           <div class="card-footer">
             <div class="progress">
@@ -24,7 +25,7 @@
           <div class="card-header">
             <h2 class="text-center">Things happen</h2>
           </div>
-          <div class="card-body">
+          <div class="card-body" id="ring">
             Kikou
           </div>
           <div class="card-footer">
@@ -35,7 +36,8 @@
             <h2 class="text-center"> <%= @fight.second_player.player_name %></h2>
           </div>
           <div class="card-body">
-            <%= image_tag @fight.first_player.image, class:"img-thumbnail mx-auto d-block" %>
+            <%= image_tag @fight.second_player.image, class:"img-thumbnail mx-auto d-block" %>
+            <%= link_to 'Hit', hit_path(player: @fight.second_player), remote: true, class:"btn btn-block btn-danger btn-lg mt-3" %>
           </div>
           <div class="card-footer">
             <div class="progress">

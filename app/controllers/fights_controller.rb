@@ -18,6 +18,15 @@ class FightsController < ApplicationController
     end
   end
 
+  def hit
+    @fight = Fight.find(params[:id])
+    @hit = Game.new(@fight,params[:player]).hit_opponent
+    respond_to do |format|
+      format.js {render layout: false}
+    end
+  end
+
+
   def index
     @fights = Fight.all
   end
