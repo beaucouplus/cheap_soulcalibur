@@ -15,11 +15,11 @@ class CurrentPlayer
   end
 
   def opponent_life
-    himself == fight.first_player ? "second_player" : "first_player"
+    himself == fight.first_player ? "second_player_life" : "first_player_life"
   end
 
   def self_life
-    himself == fight.first_player ? "first_player" : "second_player"
+    himself == fight.first_player ? "first_player_life" : "second_player_life"
   end
 
 end

@@ -20,10 +20,11 @@ class FightsController < ApplicationController
 
   def play
     @fight = Fight.find(params[:id])
-    @game = Game.new(@fight, session[:life])
+    @game = Game.new(@fight, session[:game_status])
     current = CurrentPlayer.new(@fight,params[:player])
     @hit = Play.new(@game,current).hit_opponent
-    @life = session[:life] = @game.players_life
+    @status = session[:game_status] = @game.status
+    # p @status
     respond_to do |format|
       format.js {render layout: false}
     end
@@ -35,8 +36,9 @@ class FightsController < ApplicationController
 
   def show
     @fight = Fight.find(params[:id])
-    session[:life] = { first_player: @fight.first_player.life_points,
-                       second_player: @fight.second_player.life_points }
+    session[:game_status] = { first_player_life: @fight.first_player.life_points,
+                              second_player_life: @fight.second_player.life_points,
+                              summary: [] }
   end
 
   private

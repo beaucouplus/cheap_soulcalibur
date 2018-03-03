@@ -1,23 +1,25 @@
 class Game
 
-  @@count = 0
-  attr_accessor :fight, :players_life
-  def initialize(fight,players_life)
+  attr_accessor :fight, :status
+  def initialize(fight,status)
     @fight = fight
-    @players_life = players_life
-    @@count += 1
+    @status = status
   end
 
   def change_life(player,life)
-    @players_life[player] = life
+    @status[player] = life
   end
 
-  def self.rounds
-    @@count
+  def add_to_summary(current_action)
+    @status["summary"] << current_action
   end
 
-  def started?
-    @@count > 0
+  def finished?
+    @status["first_player_life"] == 0 || @status["second_player_life"] == 0
+  end
+
+  def set_winner(player)
+    @status["winner"] = player
   end
 
 end
