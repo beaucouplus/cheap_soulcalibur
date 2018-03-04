@@ -1,2 +1,26 @@
-<h1>Fights#index</h1>
-<p>Find me in app/views/fights/index.html.erb</p>
+<div class="container">
+  <table class="table table-hover">
+    <thead class="bg-primary text-white">
+      <tr>
+        <th>#</th>
+        <th>First player</th>
+        <th>Second player</th>
+        <th>Winner</th>
+        <th>Winner's victories</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @fights.each do |fight| %>
+        <tr>
+          <th>#<%= fight.id %></th>
+          <td><%= fight.first_player.player_name %></td>
+          <td><%= fight.second_player.player_name %></td>
+          <td><%= fight.winner.player_name %></td>
+          <td><%= fight.winner.victories %></td>
+          <td><%= link_to "show", fight_path(fight) %></td>
+        </tr>
+      <% end  %>
+    </tbody>
+  </table>
+</div>

@@ -40,23 +40,21 @@ class FightsController < ApplicationController
 
   def update
     @fight = Fight.find(params[:id])
-    @fight.first_player.update_attribute(:experience, 100)
-    @fight.second_player.update_attribute(:experience, 100)
+
+    @fight.first_player.update_attribute(:experience, @fight.first_player.experience + 100)
+    @fight.second_player.update_attribute(:experience, @fight.second_player.experience + 100)
 
     winner = Player.find(session[:game_status]["winner"])
     summary = session[:game_status]["summary"].join("\n")
 
     if @fight.update(winner: winner, summary: summary)
-      @fight.winner.victories += 1
-      @fight.loser.defeats += 1
+      @fight.winner.update_attribute(:victories, @fight.winner.victories + 1)
+      @fight.loser.update_attribute(:defeats, @fight.loser.defeats + 1)
       respond_to do |format|
         format.html { render :show }
       end
     end
   end
-
-
-
 
   def index
     @fights = Fight.all
