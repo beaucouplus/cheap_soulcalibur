@@ -7,6 +7,7 @@
 #  updated_at :datetime         not null
 #  player_1   :integer
 #  player_2   :integer
+#  winner     :integer
 #
 
 class Fight < ApplicationRecord
@@ -18,4 +19,13 @@ class Fight < ApplicationRecord
 
   validates :player_1, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :player_2, presence: true, numericality: { greater_than_or_equal_to: 0 }
+
+  def loser
+    Player.find(lost)
+  end
+
+  def lost
+    winner.id == player_1 ? player_2 : player_1
+  end
+
 end

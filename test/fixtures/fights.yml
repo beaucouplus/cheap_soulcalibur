@@ -7,6 +7,7 @@
 #  updated_at :datetime         not null
 #  player_1   :integer
 #  player_2   :integer
+#  winner     :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

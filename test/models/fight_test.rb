@@ -7,6 +7,7 @@
 #  updated_at :datetime         not null
 #  player_1   :integer
 #  player_2   :integer
+#  winner     :integer
 #
 
 require 'test_helper'
@@ -43,6 +44,11 @@ class FightTest < ActiveSupport::TestCase
   test "player_2 value should not be under 0 " do
     @fight.player_2 = -1
     refute @fight.valid?
+  end
+
+  test "summary value should be optional" do
+    @fight.summary = nil
+    assert @fight.valid?
   end
 
 end
