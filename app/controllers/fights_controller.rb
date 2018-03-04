@@ -55,10 +55,7 @@ class FightsController < ApplicationController
     end
   end
 
-  def battle
-    @game = Game.new(@fight, session[:game_status], params[:player])
-    session[:game_status] = @game.play
-  end
+
 
 
   def index
@@ -74,7 +71,13 @@ class FightsController < ApplicationController
   end
 
   private
+
+  def battle
+    @game = Game.new(@fight, session[:game_status], params[:player])
+    session[:game_status] = @game.play
+  end
+
   def fight_params
-    params.require(:fight).permit(:player_1, :player_2, :winner)
+    params.require(:fight).permit(:player_1, :player_2, :winner, :weapon_1, :weapon_2)
   end
 end

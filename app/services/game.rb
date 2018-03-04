@@ -10,8 +10,8 @@ class Game
   end
 
   def play
-    new_life = Damage.new(current_player_attack,status[current_opponent_life]).make
-    update_opponent_life(new_life)
+    @damage = Damage.new(current_player_attack,current_weapon,status[current_opponent_life]).make
+    update_opponent_life(@damage[:remaining_life])
     finished? ? end_game : add_damage_to_summary
     status
   end
@@ -35,6 +35,9 @@ class Game
     add_winner
   end
 
+  def current_weapon
+    player == "first_player" ? fight.first_weapon : fight.second_weapon
+  end
 
   def current_player_attack
     player == "first_player" ? fight.first_player.attack_points : fight.second_player.attack_points
@@ -53,7 +56,7 @@ class Game
   end
 
   def damage_message
-    "#{current_opponent.player_name} lost #{current_player_attack} life points and only has #{status[current_opponent_life]} life left !"
+    "#{current_opponent.player_name} lost #{@damage[:total_attack]} life points and only has #{status[current_opponent_life]} life left !"
   end
 
   def add_damage_to_summary

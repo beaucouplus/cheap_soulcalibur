@@ -8,6 +8,9 @@
 #  player_1   :integer
 #  player_2   :integer
 #  winner     :integer
+#  summary    :text
+#  weapon_1   :integer
+#  weapon_2   :integer
 #
 
 require 'test_helper'

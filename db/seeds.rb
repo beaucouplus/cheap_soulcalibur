@@ -9,10 +9,20 @@
 
 Player.create!(player_name: "Seung Mina",
                life_points: 100,
-               attack_points: 100,
+               attack_points: 30,
                )
 
 Player.create!(player_name: "Cervantes",
                life_points: 100,
-               attack_points: 90,
+               attack_points: 25,
+               )
+
+Weapon.create!(name: "Golden Axe",
+               bonus_damage: 20,
+               weight: 40,
+               )
+
+Weapon.create!(name: "Hammer",
+               bonus_damage: 30,
+               weight: 50,
                )

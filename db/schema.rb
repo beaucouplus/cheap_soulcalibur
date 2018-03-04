@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180304174518) do
+ActiveRecord::Schema.define(version: 20180304204649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20180304174518) do
     t.integer "player_2"
     t.integer "winner"
     t.text "summary"
+    t.integer "weapon_1"
+    t.integer "weapon_2"
   end
 
   create_table "players", force: :cascade do |t|
@@ -37,6 +39,14 @@ ActiveRecord::Schema.define(version: 20180304174518) do
     t.datetime "image_updated_at"
     t.integer "victories", default: 0
     t.integer "defeats", default: 0
+  end
+
+  create_table "weapons", force: :cascade do |t|
+    t.string "name"
+    t.integer "bonus_damage"
+    t.integer "weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
