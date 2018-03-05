@@ -8,7 +8,7 @@
           </div>
           <div class="card-body">
             <%= image_tag @fight.first_player.image, class:"img-thumbnail mx-auto d-block" %>
-            <% unless @fight.winner %>
+            <% unless @fight.has_won %>
               <%= link_to 'Attack', play_path(player: "first_player"), remote: true, class:"btn btn-block btn-danger btn-lg mt-3" %>
             <% end %>
           </div>
