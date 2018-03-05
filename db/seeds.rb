@@ -26,3 +26,12 @@ Weapon.create!(name: "Hammer",
                bonus_damage: 30,
                weight: 50,
                )
+
+Feature.create!(feature_name: "developer",
+                )
+
+Feature.create!(feature_name: "rubyist",
+                )
+
+Feature.create!(feature_name: "sandi metz fan",
+                )

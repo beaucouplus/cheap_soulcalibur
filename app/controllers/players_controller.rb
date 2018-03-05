@@ -15,6 +15,7 @@ class PlayersController < ApplicationController
   # GET /players/new
   def new
     @player = Player.new
+    @player.featuring.build
   end
 
   # GET /players/1/edit
@@ -69,6 +70,6 @@ class PlayersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def player_params
-    params.require(:player).permit(:player_name, :life_points, :attack_points, :image, :experience)
+    params.require(:player).permit(:player_name, :life_points, :attack_points, :image, :experience, feature_ids: [])
   end
 end
