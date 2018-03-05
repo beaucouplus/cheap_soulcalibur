@@ -23,8 +23,22 @@ class Fight < ApplicationRecord
   belongs_to :winner, foreign_key: 'winner', class_name: 'Player', optional: true
 
 
-  validates :player_1, presence: true, numericality: { greater_than_or_equal_to: 0 }
-  validates :player_2, presence: true, numericality: { greater_than_or_equal_to: 0 }
+
+
+  validates :first_player, presence: true
+  validates :second_player, presence: true
+  validates :first_weapon, presence: true
+  validates :second_weapon, presence: true
+
+  validates :summary, length: { maximum: 1000 }, allow_nil: true
+  validate :are_not_the_same
+
+  def are_not_the_same
+    if player_1 == player_2
+      errors.add(:players, 'Cannot choose the same player twice')
+    end
+  end
+
 
   def loser
     p lost
@@ -34,5 +48,7 @@ class Fight < ApplicationRecord
   def lost
     winner.id == player_1 ? player_2 : player_1
   end
+
+
 
 end

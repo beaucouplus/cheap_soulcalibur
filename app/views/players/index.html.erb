@@ -1,30 +1,43 @@
-<p id="notice"><%= notice %></p>
-<h1>Players</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Player name</th>
-      <th>Life points</th>
-      <th>Attack points</th>
-      <th>Profile pic</th>
-      <th>Experience</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @players.each do |player| %>
-      <tr>
-        <td><%= player.player_name %></td>
-        <td><%= player.life_points %></td>
-        <td><%= player.attack_points %></td>
-        <td><%= player.image %></td>
-        <td><%= player.experience %></td>
-        <td><%= link_to 'Show', player %></td>
-        <td><%= link_to 'Edit', edit_player_path(player) %></td>
-        <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-<%= link_to 'New Player', new_player_path %>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-12">
+      <div class="card bg-white">
+        <div class="card-body">
+          <p id="notice"><%= notice %></p>
+          <h1>Players</h1>
+          <table class="table table-hover">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th>Player name</th>
+                <th>Life points</th>
+                <th>Attack points</th>
+                <th>Profile pic</th>
+                <th>Experience</th>
+                <th>Victories</th>
+                <th>Defeats</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @players.each do |player| %>
+                <tr>
+                  <td><%= player.player_name %></td>
+                  <td><%= player.life_points %></td>
+                  <td><%= player.attack_points %></td>
+                  <td><%= image_tag(player.image.url(:thumb)) %></td>
+                  <td><%= player.experience %></td>
+                  <td><%= player.victories %></td>
+                  <td><%= player.defeats %></td>
+                  <td><%= link_to 'Edit', edit_player_path(player) %></td>
+                  <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <br>
+          <%= link_to 'New Player', new_player_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

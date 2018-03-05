@@ -17,7 +17,10 @@ require 'test_helper'
 
 class FightTest < ActiveSupport::TestCase
   setup do
-    @fight = Fight.create(player_1: 1, player_2: 2)
+    @mitsurugi = players(:one)
+    @rock = players(:two)
+    @weapon = weapons(:one)
+    @fight = Fight.new(player_1: @mitsurugi.id, player_2: @rock.id, winner: @mitsurugi, weapon_1: @weapon.id, weapon_2: @weapon.id, summary: "kikou")
   end
 
   test "empty fight should be invalid" do
@@ -34,24 +37,25 @@ class FightTest < ActiveSupport::TestCase
     refute @fight.valid?
   end
 
-  test "player_1 value should not be under 0 " do
-    @fight.player_1 = -1
-    refute @fight.valid?
-  end
-
   test "fight without player_2 should be invalid" do
     @fight.player_2 = nil
-    refute @fight.valid?
-  end
-
-  test "player_2 value should not be under 0 " do
-    @fight.player_2 = -1
     refute @fight.valid?
   end
 
   test "summary value should be optional" do
     @fight.summary = nil
     assert @fight.valid?
+  end
+
+  test "should not be able to choose the same player twice" do
+    @fight.player_1 = @rock
+    @fight.player_2 = @rock
+    refute @fight.valid?
+  end
+
+  test "fight without weapon should be invalid" do
+    @fight.weapon_1 = nil
+    refute @fight.valid?
   end
 
 end

@@ -21,7 +21,7 @@ require 'test_helper'
 
 class PlayerTest < ActiveSupport::TestCase
   setup do
-    @player = Player.create(player_name: "Mitsurugi", life_points: 100, attack_points: 100, image: File.new("#{Rails.root}/test/fixtures/files/mitsurugi.jpg"),experience: 0)
+    @player = Player.new(player_name: "Michel", life_points: 100, attack_points: 30, image: File.new("#{Rails.root}/test/fixtures/files/mitsurugi.jpg"),experience: 0, victories: 0, defeats: 0)
   end
 
   test "empty player should be invalid" do
@@ -44,8 +44,7 @@ class PlayerTest < ActiveSupport::TestCase
   end
 
   test "player_name should be unique" do
-    player_1 = Player.create(player_name: "Voldo", life_points: 100, attack_points: 100, image: File.new("#{Rails.root}/test/fixtures/files/mitsurugi.jpg"),experience: 0)
-    @player.player_name = "Voldo"
+    @player.player_name = "Mitsurugi"
     refute @player.valid?
   end
 

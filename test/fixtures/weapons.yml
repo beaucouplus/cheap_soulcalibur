@@ -13,11 +13,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  bonus_damage: 1
-  weight: 1
+  name: Blade
+  bonus_damage: 5
+  weight: 20
 
 two:
-  name: MyString
-  bonus_damage: 1
-  weight: 1
+  name: Bow and Arrow
+  bonus_damage: 10
+  weight: 10

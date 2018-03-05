@@ -6,7 +6,8 @@
         <h1 class="text-light">Welcome to Cheap Soul Calibur</h1>
         <p class="text-light">A fighting game with very few buttons and no animation.
           BUT, you'll see numbers go down and a player win. Ready? </p>
-        <button class="btn btn-danger btn-lg mx-auto mt-3 btn-block">FIGHT</button>
+        <%= link_to "Create New Player", new_player_path, class: "btn btn-danger btn-lg mx-auto mt-3" %>
+        <%= link_to "Fight", new_fight_path, class: "btn btn-danger btn-lg mx-auto mt-3 px-5" %>
       </div>
     </div>
     <div class="col-2"></div>

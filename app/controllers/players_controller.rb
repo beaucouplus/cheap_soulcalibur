@@ -28,8 +28,8 @@ class PlayersController < ApplicationController
 
     respond_to do |format|
       if @player.save
-        format.html { redirect_to @player, notice: 'Player was successfully created.' }
-        format.json { render :show, status: :created, location: @player }
+        format.html { redirect_to new_fight_path, notice: 'Player was successfully created.' }
+        format.json { render new_fight_path, status: :created, location: new_fight_path }
       else
         format.html { render :new }
         format.json { render json: @player.errors, status: :unprocessable_entity }

@@ -1,26 +1,36 @@
 <div class="container">
-  <table class="table table-hover">
-    <thead class="bg-primary text-white">
-      <tr>
-        <th>#</th>
-        <th>First player</th>
-        <th>Second player</th>
-        <th>Winner</th>
-        <th>Winner's victories</th>
-        <th>Edit</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @fights.each do |fight| %>
-        <tr>
-          <th>#<%= fight.id %></th>
-          <td><%= fight.first_player.player_name %></td>
-          <td><%= fight.second_player.player_name %></td>
-          <td><%= fight.winner.player_name %></td>
-          <td><%= fight.winner.victories %></td>
-          <td><%= link_to "show", fight_path(fight) %></td>
-        </tr>
-      <% end  %>
-    </tbody>
-  </table>
+  <div class="row mt-5">
+    <div class="col-12">
+      <div class="card bg-white">
+        <div class="card-body">
+          <table class="table table-hover">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th>#</th>
+                <th>First player</th>
+                <th>Second player</th>
+                <th>Winner</th>
+                <th>Winner's victories</th>
+                <th>Winner's experience</th>
+                <th>Summary</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @fights.each do |fight| %>
+                <tr>
+                  <th>#<%= fight.id %></th>
+                  <td><%= fight.first_player.player_name %></td>
+                  <td><%= fight.second_player.player_name %></td>
+                  <td><%= fight.winner.player_name %></td>
+                  <td><%= fight.winner.victories %></td>
+                  <td><%= fight.winner.experience %></td>
+                  <td><%= link_to "show", fight_path(fight) %></td>
+                </tr>
+              <% end  %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -20,21 +20,26 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  player_name: Misturugi
-  life_points: 1
-  attack_points: 1
+  player_name: Mitsurugi
+  life_points: 100
+  attack_points: 30
   image_file_name: mitsurugi.jpg
   image_content_type: image/jpeg
   image_file_size: 223312
   image_updated_at: 2015-02-29 10:30:19 Z
   experience: 1
+  victories: 0
+  defeats: 0
 
 two:
   player_name: Rock
-  life_points: 1
-  attack_points: 1
+  life_points: 100
+  attack_points: 30
   image_file_name: mitsurugi.jpg
   image_content_type: image/jpeg
   image_file_size: 223312
   image_updated_at: 2015-02-29 10:30:19 Z
   experience: 1
+  victories: 0
+  defeats: 0
+
