@@ -26,8 +26,8 @@
                     <td><%= fight.has_won.victories %></td>
                     <td><%= fight.has_won.experience %></td>
                   <% else %>
-                    <td>Partie en cours</td>
-                    <td><%= link_to "Reprendre partie", edit_fight_path(fight) %></td>
+                    <td>Fight not finished</td>
+                    <td><%= link_to "Come back to fight", edit_fight_path(fight) %></td>
                     <td></td>
                   <% end %>
                   <td><%= link_to "show", fight_path(fight) %></td>
