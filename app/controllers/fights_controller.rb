@@ -62,10 +62,6 @@ class FightsController < ApplicationController
 
   def show
     @fight = Fight.find(params[:id])
-    session[:game_status] = { first_player_life: @fight.first_player.life_points,
-                              second_player_life: @fight.second_player.life_points,
-                              summary: [],
-                              winner: 0 }
   end
 
   private
