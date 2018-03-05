@@ -20,9 +20,7 @@ class Fight < ApplicationRecord
   belongs_to :first_weapon, foreign_key: 'weapon_1', class_name: 'Weapon'
   belongs_to :second_weapon, foreign_key: 'weapon_2', class_name: 'Weapon'
 
-  belongs_to :winner, foreign_key: 'winner', class_name: 'Player', optional: true
-
-
+  belongs_to :has_won, foreign_key: 'winner', class_name: 'Player', optional: true
 
 
   validates :first_player, presence: true
@@ -41,12 +39,11 @@ class Fight < ApplicationRecord
 
 
   def loser
-    p lost
     Player.find(lost)
   end
 
   def lost
-    winner.id == player_1 ? player_2 : player_1
+    has_won.id == player_1 ? player_2 : player_1
   end
 
 

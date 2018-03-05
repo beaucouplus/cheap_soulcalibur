@@ -23,9 +23,8 @@ class Player < ApplicationRecord
   has_many :away_fights, foreign_key: 'player_2', class_name: 'Fight'
   has_many :wins, foreign_key: 'winner', class_name: 'Fight'
 
-  has_many :featuring
+  has_many :featuring, dependent: :destroy
   has_many :features, through: :featuring
-  # accepts_nested_attributes_for :featuring
 
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/

@@ -21,9 +21,9 @@
                   <th>#<%= fight.id %></th>
                   <td><%= fight.first_player.player_name %></td>
                   <td><%= fight.second_player.player_name %></td>
-                  <td><%= fight.winner.player_name %></td>
-                  <td><%= fight.winner.victories %></td>
-                  <td><%= fight.winner.experience %></td>
+                  <td><%= fight.has_won.player_name %></td>
+                  <td><%= fight.has_won.victories %></td>
+                  <td><%= fight.has_won.experience %></td>
                   <td><%= link_to "show", fight_path(fight) %></td>
                 </tr>
               <% end  %>

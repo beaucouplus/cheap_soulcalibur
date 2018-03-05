@@ -12,12 +12,12 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+weapon_1:
   name: Blade
   bonus_damage: 5
   weight: 20
 
-two:
+weapon_2:
   name: Bow and Arrow
   bonus_damage: 10
   weight: 10

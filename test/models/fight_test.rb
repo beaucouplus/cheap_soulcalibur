@@ -17,9 +17,9 @@ require 'test_helper'
 
 class FightTest < ActiveSupport::TestCase
   setup do
-    @mitsurugi = players(:one)
-    @rock = players(:two)
-    @weapon = weapons(:one)
+    @mitsurugi = players(:first_player)
+    @rock = players(:second_player)
+    @weapon = weapons(:weapon_1)
     @fight = Fight.new(player_1: @mitsurugi.id, player_2: @rock.id, winner: @mitsurugi, weapon_1: @weapon.id, weapon_2: @weapon.id, summary: "kikou")
   end
 

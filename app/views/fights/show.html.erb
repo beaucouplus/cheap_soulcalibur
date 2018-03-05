@@ -15,7 +15,7 @@
         </div>
         <div class="card bg-danger text-white mt-5">
           <div class="card-header">
-            <h2 class="text-center" id="battle">Winner : <%= @fight.winner.player_name %></h2>
+            <h2 class="text-center" id="battle">Winner : <%= @fight.has_won.player_name %></h2>
           </div>
           <div class="card-body" id="ring">
             <h2>Summary</h2>
@@ -28,7 +28,7 @@
           </div>
           <div class="card-body">
             <%= image_tag @fight.second_player.image, class:"img-thumbnail mx-auto d-block" %>
-            <% unless @fight.winner %>
+            <% unless @fight.has_won %>
               <%= link_to 'Attack', play_path(player: "second_player"), remote: true, class:"btn btn-block btn-danger btn-lg mt-3" %>
             <% end %>
           </div>

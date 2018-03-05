@@ -19,8 +19,19 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+one: 
+  first_player: first_player
+  second_player: second_player
+  has_won: first_player
+  summary: du texte un peu long
+  first_weapon: weapon_1
+  second_weapon: weapon_2
 # column: value
 #
-two: {}
-# column: value
+two: 
+  first_player: first_player
+  second_player: second_player
+  has_won: first_player
+  summary: du texte un peu long
+  first_weapon: weapon_1
+  second_weapon: weapon_2

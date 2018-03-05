@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PlayersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @player = players(:one)
+    @player = players(:first_player)
   end
 
   test "should get index" do
@@ -21,7 +21,7 @@ class PlayersControllerTest < ActionDispatch::IntegrationTest
       post players_url, params: { player: { attack_points: @player.attack_points, experience: @player.experience, life_points: @player.life_points, player_name: "Voldo", image: image } }
     end
 
-    assert_redirected_to player_url(Player.last)
+    assert_redirected_to new_fight_url
   end
 
   test "should show player" do

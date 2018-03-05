@@ -19,7 +19,7 @@ class FightsController < ApplicationController
 
   def edit
     @fight = Fight.find(params[:id])
-    if @fight.winner
+    if @fight.has_won
       respond_to do |format|
         format.html { render :show }
       end
@@ -47,8 +47,8 @@ class FightsController < ApplicationController
     winner = Player.find(session[:game_status]["winner"])
     summary = session[:game_status]["summary"].join("\n")
 
-    if @fight.update(winner: winner, summary: summary)
-      @fight.winner.update_attribute(:victories, @fight.winner.victories + 1)
+    if @fight.update(has_won: winner, summary: summary)
+      @fight.has_won.update_attribute(:victories, @fight.has_won.victories + 1)
       @fight.loser.update_attribute(:defeats, @fight.loser.defeats + 1)
       respond_to do |format|
         format.html { render :show }
